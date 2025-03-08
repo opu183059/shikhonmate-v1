@@ -1,6 +1,7 @@
 import { Button, Checkbox, CheckboxProps, Form, Input } from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
+import logo from "../../../public/Logo.png";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const LoginPage = () => {
         className="md:w-1/2"
       >
         <div className="flex justify-center mb-4">
-          <img src="/public/Logo.png" />
+          <img src={logo} />
         </div>
         <Form.Item
           hasFeedback
