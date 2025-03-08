@@ -1,0 +1,27 @@
+import { Layout } from "antd";
+import DashboardSidebar from "../components/shared/DashboardSidebar";
+import { Outlet } from "react-router-dom";
+
+const { Content } = Layout;
+
+const DashboardLayout = () => {
+  return (
+    <Layout style={{ height: "100%" }}>
+      <DashboardSidebar />
+      <Layout style={{ background: "#fff" }}>
+        <Content style={{ margin: "24px 16px 0" }}>
+          <div
+            style={{
+              padding: 24,
+              minHeight: 360,
+            }}
+          >
+            <Outlet />
+          </div>
+        </Content>
+      </Layout>
+    </Layout>
+  );
+};
+
+export default DashboardLayout;

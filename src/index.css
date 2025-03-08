@@ -1,0 +1,44 @@
+/* manual css will be written here  */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-type-one: #21295c;
+  --color-type-two: #065a82;
+  --color-type-three: #4da6c8;
+  --color-type-four: #eff7ff;
+  --bg-color: #e5e7eb;
+}
+
+.bg-one {
+  background-color: var(--color-type-one);
+}
+.bg-two {
+  background-color: var(--color-type-two);
+}
+.bg-three {
+  background-color: var(--color-type-three);
+}
+.bg-four {
+  background-color: var(--color-type-four);
+}
+
+.dark {
+  --bg-color: #221129;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* custom ant design css will be written here */
+.ant-menu-item-selected {
+  background-color: var(--color-type-three) !important;
+  color: white !important;
+  font-weight: 500;
+}

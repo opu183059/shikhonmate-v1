@@ -1,0 +1,9 @@
+/* Tailwind css will be written here  */
+
+.btn1 {
+  @apply bg-[#21295C] rounded-md hover:!bg-[#4DA6C8];
+}
+
+.heading1 {
+  @apply mb-5 font-semibold text-2xl;
+}
