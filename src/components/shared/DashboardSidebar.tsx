@@ -86,6 +86,8 @@ const DashboardSidebar = () => {
 
   return (
     <Sider
+      breakpoint="lg"
+      collapsedWidth="0"
       width={280}
       theme="light"
       className="h-screen sticky top-0 left-0 bg-four"
@@ -98,7 +100,7 @@ const DashboardSidebar = () => {
         mode="inline"
         defaultSelectedKeys={["dashboard"]}
         items={sidebarItems}
-        className="bg-four px-2"
+        className="bg-four xl:px-2"
       />
     </Sider>
   );
