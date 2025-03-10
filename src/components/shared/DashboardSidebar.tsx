@@ -1,11 +1,17 @@
-import { Layout, Menu, MenuProps } from "antd";
+import { Button, Layout, Menu, MenuProps } from "antd";
 
-import { TUser } from "../../redux/feature/auth/authSlice";
-import { Link } from "react-router-dom";
+import {
+  logout,
+  TUser,
+  useCurrentToken,
+} from "../../redux/feature/auth/authSlice";
+import { Link, useNavigate } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import { PiBuildingOffice, PiUsersFourBold } from "react-icons/pi";
 import { MdOutlinePriceChange } from "react-icons/md";
 import { LuLayoutDashboard } from "react-icons/lu";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { jwtDecode } from "jwt-decode";
 
 const { Sider } = Layout;
 
@@ -15,20 +21,20 @@ const userRole = {
 };
 
 const DashboardSidebar = () => {
-  //   const token = useAppSelector(useCurrentToken);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  //   let user;
+  const token = useAppSelector(useCurrentToken);
 
-  //   if (token) {
-  //     user = jwtDecode(token);
-  //   }
+  let user;
 
-  const user = {
-    userEmail: "string",
-    userID: "1212",
-    userRole: "admin",
-    iat: 4545,
-    exp: 4545,
+  if (token) {
+    user = jwtDecode(token);
+  }
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login", { replace: true });
   };
 
   let sidebarItems: MenuProps["items"];
@@ -102,6 +108,15 @@ const DashboardSidebar = () => {
         items={sidebarItems}
         className="bg-four"
       />
+
+      <div className="absolute bottom-5 w-full flex justify-center">
+        <div
+          onClick={handleLogout}
+          className=" px-2 py-1 w-full text-center hover:bg-[#4DA6C8] hover:text-gray-50 font-semibold cursor-pointer duration-200"
+        >
+          Logout
+        </div>
+      </div>
     </Sider>
   );
 };
