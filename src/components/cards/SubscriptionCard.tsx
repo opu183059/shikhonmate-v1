@@ -1,4 +1,4 @@
-import { Dropdown, MenuProps } from "antd";
+import { Button, Card, Dropdown, MenuProps } from "antd";
 import { PiDotsThreeVerticalBold } from "react-icons/pi";
 
 const SubscriptionCard = () => {
@@ -41,7 +41,7 @@ const SubscriptionCard = () => {
     },
   ];
   return (
-    <div className="bg-[#F8F8F8] p-7 rounded-lg">
+    <Card className="bg-[#F8F8F8] rounded-lg">
       <div className="flex justify-between items-center">
         <h2 className="font-semibold text-xl ">Basic</h2>
 
@@ -64,7 +64,10 @@ const SubscriptionCard = () => {
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum
         blanditiis, cum cumque architecto veniam iusto error tempore commodi
       </p>
-    </div>
+      <div className="flex justify-center mt-4">
+        <Button className="btn1">View Details</Button>
+      </div>
+    </Card>
   );
 };
 
