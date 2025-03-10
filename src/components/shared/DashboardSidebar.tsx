@@ -6,12 +6,14 @@ import {
   useCurrentToken,
 } from "../../redux/feature/auth/authSlice";
 import { Link, useNavigate } from "react-router-dom";
+
 import { FaRegUser } from "react-icons/fa";
 import { PiBuildingOffice, PiUsersFourBold } from "react-icons/pi";
 import { MdOutlinePriceChange } from "react-icons/md";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { jwtDecode } from "jwt-decode";
+
 
 const { Sider } = Layout;
 
@@ -99,7 +101,7 @@ const DashboardSidebar = () => {
       className="h-screen sticky top-0 left-0 bg-four"
     >
       <div className="h-[4rem] flex justify-center items-center text-gray-50 mb-5">
-        <img src="/public/Logo.png" className="w-28" />
+        <img src={logo} className="w-28" />
       </div>
 
       <Menu
