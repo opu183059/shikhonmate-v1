@@ -13,7 +13,7 @@ import { MdOutlinePriceChange } from "react-icons/md";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { jwtDecode } from "jwt-decode";
-
+import logo from "../../../public/Logo.png";
 
 const { Sider } = Layout;
 
