@@ -1,4 +1,4 @@
-import { Button, Layout, Menu, MenuProps } from "antd";
+import { Layout, Menu, MenuProps } from "antd";
 
 import {
   logout,
