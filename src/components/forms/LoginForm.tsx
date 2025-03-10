@@ -5,6 +5,7 @@ import { useLoginMutation } from "../../redux/feature/auth/authApi";
 import { useAppDispatch } from "../../redux/hooks";
 import { setUser } from "../../redux/feature/auth/authSlice";
 import { jwtDecode } from "jwt-decode";
+import logo from "../../../public/Logo.png";
 
 const LoginForm = () => {
   const [login, { error, isLoading }] = useLoginMutation();
@@ -50,7 +51,7 @@ const LoginForm = () => {
       className="md:w-1/2"
     >
       <div className="flex justify-center mb-4">
-        <img src="/public/Logo.png" />
+        <img src={logo} />
       </div>
       <Form.Item
         hasFeedback
