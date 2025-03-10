@@ -121,7 +121,7 @@ const ManageInstitutes = () => {
           size="large"
           className="btn1 mb-5"
         >
-          Add New User
+          Add New Institution
         </Button>
       </div>
 
