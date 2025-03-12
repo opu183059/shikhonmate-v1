@@ -36,6 +36,8 @@ const DashboardSidebar = () => {
 
   let sidebarItems: MenuProps["items"];
 
+  // console.log(sidebarItemsGenerator(superAdminPaths, userRole.SUPERADMIN));
+
   switch ((user as TUser)!.userRole) {
     case userRole.SUPERADMIN:
       sidebarItems = [
@@ -93,7 +95,7 @@ const DashboardSidebar = () => {
   return (
     <Sider
       breakpoint="lg"
-      // collapsedWidth={0}
+      collapsedWidth={0}
       collapsible
       width={240}
       theme="light"

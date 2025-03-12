@@ -6,7 +6,8 @@ export const sidebarItemsGenerator = (items: TUserPath[], role: string) => {
     if (item.path && item.name) {
       acc.push({
         key: item.name,
-        label: <NavLink to={`/${role}/${item.path}`}>{item.name}</NavLink>,
+        icon: item.icon,
+        label: <NavLink to={`${role}/${item.path}`}>{item.name}</NavLink>,
       });
     }
 
@@ -18,8 +19,9 @@ export const sidebarItemsGenerator = (items: TUserPath[], role: string) => {
           if (child.name) {
             return {
               key: child.name,
+              icon: item.icon,
               label: (
-                <NavLink to={`/${role}/${child.path}`}>{child.name}</NavLink>
+                <NavLink to={`${role}/${child.path}`}>{child.name}</NavLink>
               ),
             };
           }
@@ -32,3 +34,11 @@ export const sidebarItemsGenerator = (items: TUserPath[], role: string) => {
 
   return sidebarItems;
 };
+
+// {
+//   key: "manage-institutes",
+//   icon: <PiBuildingOffice size={18} />,
+//   label: (
+//     <Link to={"/super-admin/manage-institutes"}>Manage Institutes</Link>
+//   ),
+// },
