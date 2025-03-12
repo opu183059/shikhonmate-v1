@@ -16,7 +16,7 @@ const ManageSubscriptions = () => {
           Create New Subscription
         </Button>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 md:gap-8 gap-5 xl:gap-14">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  md:gap-8 gap-5 xl:gap-14">
         <SubscriptionCard />
         <SubscriptionCard />
         <SubscriptionCard />

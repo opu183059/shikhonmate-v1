@@ -43,8 +43,20 @@
   font-weight: 500;
 }
 
-@media only screen and (max-width: 600px) {
+/* Laptop screens */
+@media (max-width: 1439px) {
   * {
     font-size: 14px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1023px) {
+}
+
+/* Mobile devices */
+@media (max-width: 767px) {
+  * {
+    font-size: 12px;
   }
 }
