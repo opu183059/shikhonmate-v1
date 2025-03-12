@@ -1,23 +1,18 @@
 import { Layout, Menu, MenuProps } from "antd";
-
-import {
-  logout,
-  TUser,
-  useCurrentToken,
-} from "../../redux/feature/auth/authSlice";
+import { logout, useCurrentToken } from "../../redux/feature/auth/authSlice";
 import { Link, useNavigate } from "react-router-dom";
-
-import { FaRegUser } from "react-icons/fa";
 import { PiBuildingOffice, PiUsersFourBold } from "react-icons/pi";
 import { MdOutlinePriceChange } from "react-icons/md";
 import { LuLayoutDashboard } from "react-icons/lu";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { jwtDecode } from "jwt-decode";
 import logo from "../../../public/Logo.png";
+import { TUser } from "../../types/user.type";
 
 const { Sider } = Layout;
 
 const userRole = {
+  SUPERADMIN: "super-admin",
   ADMIN: "admin",
   USER: "user",
 };
@@ -42,48 +37,51 @@ const DashboardSidebar = () => {
   let sidebarItems: MenuProps["items"];
 
   switch ((user as TUser)!.userRole) {
-    case userRole.ADMIN:
+    case userRole.SUPERADMIN:
       sidebarItems = [
         {
           key: "dashboard",
           icon: <LuLayoutDashboard size={18} />,
-          label: <Link to={"/dashboard/supper-admin/home"}>Dashboard</Link>,
+          label: <Link to={"/super-admin"}>Dashboard</Link>,
         },
         {
           key: "manage-institutes",
           icon: <PiBuildingOffice size={18} />,
           label: (
-            <Link to={"/dashboard/supper-admin/manage-institutes"}>
-              Manage Institutes
-            </Link>
+            <Link to={"/super-admin/manage-institutes"}>Manage Institutes</Link>
           ),
         },
         {
           key: "manage-users",
           icon: <PiUsersFourBold size={18} />,
-          label: (
-            <Link to={"/dashboard/supper-admin/manage-users"}>
-              Manage Users
-            </Link>
-          ),
+          label: <Link to={"/super-admin/manage-users"}>Manage Users</Link>,
         },
         {
           key: "manage-subscriptions",
           icon: <MdOutlinePriceChange size={18} />,
           label: (
-            <Link to={"/dashboard/supper-admin/manage-subscriptions"}>
+            <Link to={"/super-admin/manage-subscriptions"}>
               Manage Subscriptions
             </Link>
           ),
         },
       ];
       break;
+    case userRole.ADMIN:
+      sidebarItems = [
+        {
+          key: "manage-users",
+          icon: <PiUsersFourBold size={18} />,
+          label: <p>Admin</p>,
+        },
+      ];
+      break;
     case userRole.USER:
       sidebarItems = [
         {
-          key: "dashboard",
-          icon: <FaRegUser size={18} />,
-          label: <Link to={"/admin/dashboard/profile"}>Dashboard</Link>,
+          key: "manage-users",
+          icon: <PiUsersFourBold size={18} />,
+          label: <p>User</p>,
         },
       ];
       break;

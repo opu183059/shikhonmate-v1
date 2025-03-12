@@ -6,6 +6,7 @@ import { useAppDispatch } from "../../redux/hooks";
 import { setUser } from "../../redux/feature/auth/authSlice";
 import { jwtDecode } from "jwt-decode";
 import logo from "../../../public/Logo.png";
+import { TUser } from "../../types/user.type";
 
 const LoginForm = () => {
   const [login, { error, isLoading }] = useLoginMutation();
@@ -20,7 +21,7 @@ const LoginForm = () => {
       const response = await login(values).unwrap();
       console.log(response);
 
-      const decodedUser = jwtDecode(response.data.token);
+      const decodedUser = jwtDecode(response.data.token) as TUser;
       dispatch(
         setUser({
           user: decodedUser,
@@ -30,7 +31,8 @@ const LoginForm = () => {
       if (response.success) {
         toster();
         message.success(response.message);
-        navigate(`/dashboard`, { replace: true });
+        navigate(`/${decodedUser?.userRole}`, { replace: true });
+        // navigate(`${decodedUser?.userRole}`, { replace: true });
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
