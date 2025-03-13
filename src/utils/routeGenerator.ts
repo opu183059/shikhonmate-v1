@@ -1,19 +1,21 @@
 import { TRoute, TUserPath } from "../types/sidebar.type";
 
-export const routeGenerator = (items: TUserPath[]) => {
+export const routeGenerator = (items: TUserPath[], role: string) => {
   const routes = items.reduce((acc: TRoute[], item) => {
     if (item.path && item.element) {
       acc.push({
-        path: item.path,
-        element: item.element,
+        path: "/" + role + item?.path,
+        // path: item.path,
+        element: item?.element,
       });
     }
 
     if (item.children) {
       item.children.forEach((child) => {
         acc.push({
-          path: child.path!,
-          element: child.element,
+          path: "/" + role + child?.path,
+          // path: child.path!,
+          element: child?.element,
         });
       });
     }

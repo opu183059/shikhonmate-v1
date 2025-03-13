@@ -9,6 +9,7 @@ import Dashboard from "../pages/dashboard/Dashboard";
 import ProtectedRoute from "../layouts/ProtectedRoute";
 import { routeGenerator } from "../utils/routeGenerator";
 import { superAdminPaths } from "./superAdmin.routes";
+import { userRole } from "../types/user.type";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ const router = createBrowserRouter([
         <Dashboard />
       </ProtectedRoute>
     ),
-    children: routeGenerator(superAdminPaths),
+    children: routeGenerator(superAdminPaths, userRole.SUPERADMIN),
   },
   {
     path: "/user",

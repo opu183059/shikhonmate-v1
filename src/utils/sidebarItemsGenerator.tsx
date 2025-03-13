@@ -6,39 +6,31 @@ export const sidebarItemsGenerator = (items: TUserPath[], role: string) => {
     if (item.path && item.name) {
       acc.push({
         key: item.name,
-        icon: item.icon,
-        label: <NavLink to={`${role}/${item.path}`}>{item.name}</NavLink>,
+        icon: item?.icon,
+        label: <NavLink to={"/" + role + item?.path}>{item?.name}</NavLink>,
       });
     }
 
-    if (item.children) {
+    if (item.children && item.name) {
       acc.push({
-        key: item.name!, // todo: fix this !
+        key: item.name,
         label: item.name,
+        icon: item.icon,
         children: item.children.map((child) => {
           if (child.name) {
             return {
               key: child.name,
-              icon: item.icon,
+              icon: child?.icon,
               label: (
-                <NavLink to={`${role}/${child.path}`}>{child.name}</NavLink>
+                <NavLink to={"/" + role + child?.path}>{child?.name}</NavLink>
               ),
             };
           }
         }),
       });
     }
-
     return acc;
   }, []);
 
   return sidebarItems;
 };
-
-// {
-//   key: "manage-institutes",
-//   icon: <PiBuildingOffice size={18} />,
-//   label: (
-//     <Link to={"/super-admin/manage-institutes"}>Manage Institutes</Link>
-//   ),
-// },

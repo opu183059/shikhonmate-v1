@@ -1,4 +1,4 @@
-import { Button, Checkbox, CheckboxProps, Form, Input, message } from "antd";
+import { Button, Checkbox, CheckboxProps, Form, Input } from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../redux/feature/auth/authApi";
@@ -7,6 +7,7 @@ import { setUser } from "../../redux/feature/auth/authSlice";
 import { jwtDecode } from "jwt-decode";
 import logo from "../../../public/Logo.png";
 import { TUser } from "../../types/user.type";
+import { toast } from "sonner";
 
 const LoginForm = () => {
   const [login, { error, isLoading }] = useLoginMutation();
@@ -16,11 +17,9 @@ const LoginForm = () => {
   console.log(error);
 
   const onFinish = async (values: { email: string; password: string }) => {
-    const toster = message.loading("Loging in...", 0);
+    const toastId = toast.loading("Logging in");
     try {
       const response = await login(values).unwrap();
-      console.log(response);
-
       const decodedUser = jwtDecode(response.data.token) as TUser;
       dispatch(
         setUser({
@@ -29,15 +28,14 @@ const LoginForm = () => {
         })
       );
       if (response.success) {
-        toster();
-        message.success(response.message);
+        toast.success(response.message, { id: toastId, duration: 2000 });
         navigate(`/${decodedUser?.userRole}`, { replace: true });
-        // navigate(`${decodedUser?.userRole}`, { replace: true });
       }
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
     } catch (err: any) {
-      toster();
-      message.error(err?.data?.message as string);
+      // message.error(err?.data?.message as string);
+      toast.error("Something went wrong", { id: toastId, duration: 2000 });
     }
   };
 
@@ -52,8 +50,8 @@ const LoginForm = () => {
       onFinish={onFinish}
       className="md:w-1/2"
     >
-      <div className="flex justify-center mb-4">
-        <img src={logo} />
+      <div className="flex justify-center mb-8">
+        <img src={logo} className="w-8/12" />
       </div>
       <Form.Item
         hasFeedback

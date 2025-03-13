@@ -48,7 +48,7 @@ const SubscriptionCard = () => {
     <Card className="bg-[#F8F8F8] rounded-lg">
       <div className="flex justify-between items-center">
         <h2 className="font-semibold text-xl ">Basic</h2>
-        <Dropdown menu={{ items }} placement="bottomRight">
+        <Dropdown menu={{ items }} trigger={["click"]} placement="bottomRight">
           <PiDotsThreeVerticalBold size={22} className="cursor-pointer" />
         </Dropdown>
       </div>
