@@ -43,6 +43,11 @@
   font-weight: 500;
 }
 
+.ant-layout-sider-trigger {
+  background-color: var(--color-type-three) !important;
+  color: white !important;
+}
+
 /* Laptop screens */
 @media (max-width: 1439px) {
   * {

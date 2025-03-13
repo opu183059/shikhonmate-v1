@@ -9,27 +9,45 @@ import { MdOutlinePriceChange } from "react-icons/md";
 export const superAdminPaths = [
   {
     name: "Dashboard",
-    path: "/super-admin",
+    path: "/",
     icon: <LuLayoutDashboard size={18} />,
     element: <HomeDashboard />,
   },
   {
     name: "Manage Institutes",
-    path: "/super-admin/manage-institutes",
+    path: "/manage-institutes",
     icon: <PiBuildingOffice size={18} />,
     element: <ManageInstitutes />,
   },
   {
     name: "Manage Users",
-    path: "/super-admin/manage-users",
+    path: "/manage-users",
     icon: <PiUsersFourBold size={18} />,
     element: <ManageUsers />,
   },
   {
     name: "Manage Subscriptions",
-    path: "/super-admin/manage-subscriptions",
+    path: "/manage-subscriptions",
     icon: <MdOutlinePriceChange size={18} />,
     element: <ManageSubscriptions />,
+  },
+  {
+    name: "Children Routes",
+    icon: <PiBuildingOffice size={18} />,
+    children: [
+      {
+        name: "test1",
+        path: "/test-1",
+        icon: <LuLayoutDashboard size={18} />,
+        element: <div className="flex justify-center text-5xl">test1</div>,
+      },
+      {
+        name: "test2",
+        path: "/test-2",
+        icon: <PiUsersFourBold size={18} />,
+        element: <div className="flex justify-center text-5xl">test2</div>,
+      },
+    ],
   },
 
   // {
