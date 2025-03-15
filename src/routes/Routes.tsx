@@ -10,11 +10,18 @@ import ProtectedRoute from "../layouts/ProtectedRoute";
 import { routeGenerator } from "../utils/routeGenerator";
 import { superAdminPaths } from "./superAdmin.routes";
 import { userRole } from "../types/user.type";
+import HomePage from "../pages/home/HomePage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
+    ],
     errorElement: (
       <p>
         Page not found back to <Link to={"/"}>Home</Link>
