@@ -9,6 +9,7 @@
   --color-type-two: #065a82;
   --color-type-three: #4da6c8;
   --color-type-four: #eff7ff;
+  --color-type-five: #d4dcff;
   --bg-color: #e5e7eb;
 }
 
@@ -36,7 +37,15 @@
   font-size: 16px;
 }
 
+.background-gradient {
+  background-image: linear-gradient(to top left, var(--color-type-five), white);
+}
+
 /* custom ant design css will be written here */
+.ant-layout-content {
+  padding: 0px 24px 24px;
+}
+
 .ant-menu-item-selected {
   background-color: var(--color-type-three) !important;
   color: white !important;
@@ -50,9 +59,6 @@
 
 /* Laptop screens */
 @media (max-width: 1439px) {
-  * {
-    font-size: 14px;
-  }
 }
 
 /* Tablets */
@@ -63,5 +69,8 @@
 @media (max-width: 767px) {
   * {
     font-size: 12px;
+  }
+  .ant-layout-content {
+    padding: 0px;
   }
 }

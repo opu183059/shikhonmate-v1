@@ -12,12 +12,7 @@ const DashboardLayout = () => {
       <Layout style={{ background: "#fff" }}>
         <DashboardHeader />
         <Content style={{ margin: "24px 16px 0" }}>
-          <div
-            style={{
-              padding: "0px 24px 24px",
-              minHeight: 360,
-            }}
-          >
+          <div className="dashboard-content">
             <Outlet />
           </div>
         </Content>
