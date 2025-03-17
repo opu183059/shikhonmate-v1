@@ -2,26 +2,17 @@ import { createBrowserRouter, Link } from "react-router-dom";
 import App from "../App";
 import LoginPage from "../pages/login/LoginPage";
 import Dashboard from "../pages/dashboard/Dashboard";
-// import HomeDashboard from "../pages/dashboard/super-admin/home/HomeDashboard";
-// import ManageInstitutes from "../pages/dashboard/super-admin/institutes/ManageInstitutes";
-// import ManageUsers from "../pages/dashboard/super-admin/users/ManageUsers";
-// import ManageSubscriptions from "../pages/dashboard/super-admin/subscription/ManageSubscriptions";
 import ProtectedRoute from "../layouts/ProtectedRoute";
 import { routeGenerator } from "../utils/routeGenerator";
 import { superAdminPaths } from "./superAdmin.routes";
 import { userRole } from "../types/user.type";
-import HomePage from "../pages/home/HomePage";
+import { mainMenuPaths } from "./mainMenu.routes";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    children: [
-      {
-        path: "/",
-        element: <HomePage />,
-      },
-    ],
+    children: routeGenerator(mainMenuPaths, ""),
     errorElement: (
       <p>
         Page not found back to <Link to={"/"}>Home</Link>

@@ -7,3 +7,11 @@
 .heading1 {
   @apply mb-5 font-semibold text-2xl;
 }
+
+.active {
+  @apply bg-white;
+}
+
+.main-menu a:not(.active):hover {
+  @apply bg-white duration-300;
+}
