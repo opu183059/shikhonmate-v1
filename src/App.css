@@ -1,7 +1,11 @@
-/* Tailwind css will be written here  */
+/* Tailwind CSS will be written here  */
 
 .btn1 {
   @apply bg-[#21295C] rounded-md hover:!bg-[#4DA6C8] text-gray-50 hover:!text-gray-50;
+}
+
+.btn2 {
+  @apply bg-[#065A82] rounded-3xl px-4 py-1 hover:!bg-[#4DA6C8] text-gray-50 hover:!text-gray-50 uppercase;
 }
 
 .heading1 {

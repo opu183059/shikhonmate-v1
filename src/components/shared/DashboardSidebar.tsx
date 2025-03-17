@@ -7,6 +7,8 @@ import logo from "../../../public/Logo.png";
 import { TUser, userRole } from "../../types/user.type";
 import { sidebarItemsGenerator } from "../../utils/sidebarItemsGenerator";
 import { superAdminPaths } from "../../routes/superAdmin.routes";
+import { Link } from "react-router-dom";
+import { IoHomeOutline } from "react-icons/io5";
 
 const { Sider } = Layout;
 
@@ -68,6 +70,17 @@ const DashboardSidebar = () => {
         mode="inline"
         defaultSelectedKeys={["dashboard"]}
         items={sidebarItems}
+        className="bg-four"
+      />
+      <Menu
+        mode="inline"
+        items={[
+          {
+            key: "1",
+            icon: <IoHomeOutline size={18} />,
+            label: <Link to={"/"}>Home</Link>,
+          },
+        ]}
         className="bg-four"
       />
     </Sider>

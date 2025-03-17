@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { TSidebarItem, TUserPath } from "../types/sidebar.type";
 
 export const sidebarItemsGenerator = (items: TUserPath[], role: string) => {
@@ -7,7 +7,7 @@ export const sidebarItemsGenerator = (items: TUserPath[], role: string) => {
       acc.push({
         key: item.name,
         icon: item?.icon,
-        label: <NavLink to={"/" + role + item?.path}>{item?.name}</NavLink>,
+        label: <Link to={"/" + role + item?.path}>{item?.name}</Link>,
       });
     }
 
@@ -21,9 +21,7 @@ export const sidebarItemsGenerator = (items: TUserPath[], role: string) => {
             return {
               key: child.name,
               icon: child?.icon,
-              label: (
-                <NavLink to={"/" + role + child?.path}>{child?.name}</NavLink>
-              ),
+              label: <Link to={"/" + role + child?.path}>{child?.name}</Link>,
             };
           }
         }),

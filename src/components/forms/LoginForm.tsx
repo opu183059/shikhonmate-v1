@@ -1,6 +1,6 @@
 import { Button, Checkbox, CheckboxProps, Form, Input } from "antd";
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../redux/feature/auth/authApi";
 import { useAppDispatch } from "../../redux/hooks";
 import { setUser } from "../../redux/feature/auth/authSlice";
@@ -29,7 +29,7 @@ const LoginForm = () => {
       );
       if (response.success) {
         toast.success(response.message, { id: toastId, duration: 2000 });
-        navigate(`/${decodedUser?.userRole}`, { replace: true });
+        navigate(`/${decodedUser?.userRole}/dashboard`, { replace: true });
       }
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
@@ -90,6 +90,12 @@ const LoginForm = () => {
           {isLoading ? "Loging..." : "Log in"}
         </Button>
       </Form.Item>
+      <p className="text-center">
+        or return to
+        <Link to={"/"} className="font-semibold uppercase mx-1">
+          Home
+        </Link>
+      </p>
     </Form>
   );
 };

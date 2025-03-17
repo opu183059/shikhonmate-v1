@@ -39,13 +39,7 @@ const router = createBrowserRouter([
         <Dashboard />
       </ProtectedRoute>
     ),
-    // children: routeGenerator(superAdminPaths),
   },
 ]);
 
 export default router;
-
-//   {
-//     path: "/dashboard",
-//     element: <Navigate to="/dashboard/supper-admin/home" replace />,
-//   },

@@ -1,8 +1,44 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../public/Logo.png";
 import { mainMenu } from "../../utils/mainMenu";
-import { Button } from "antd";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { logout, selectCurrentUser } from "../../redux/feature/auth/authSlice";
+import { Avatar, Dropdown, MenuProps } from "antd";
+import { RxExit } from "react-icons/rx";
+import { LuLayoutDashboard } from "react-icons/lu";
+
 const MainHeader = () => {
+  const user = useAppSelector(selectCurrentUser);
+  console.log(user);
+  const dispatch = useAppDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+  };
+
+  const items: MenuProps["items"] = [
+    {
+      key: "1",
+      label: (
+        <Link
+          to={`${user?.userRole}/dashboard`}
+          className="flex items-center gap-2 w-28"
+        >
+          <LuLayoutDashboard size={18} /> Dashboard
+        </Link>
+      ),
+    },
+    {
+      key: "2",
+      label: (
+        <p onClick={handleLogout} className="flex items-center gap-2 w-28">
+          <RxExit size={14} className="mx-[3px]" /> Logout
+        </p>
+      ),
+    },
+  ];
+
+  console.log(user);
   return (
     <nav className="container mx-auto">
       <div className="flex justify-between items-center py-4">
@@ -20,8 +56,24 @@ const MainHeader = () => {
             </NavLink>
           ))}
         </div>
-        <div className="login">
-          <Button className="btn1">Login</Button>
+        <div>
+          {user ? (
+            <Dropdown
+              trigger={["click"]}
+              menu={{ items }}
+              placement="bottomRight"
+            >
+              <Avatar
+                size={35}
+                src={"https://avatars.githubusercontent.com/u/90123719?v=4"}
+                className="cursor-pointer"
+              />
+            </Dropdown>
+          ) : (
+            <Link to={"/login"} className="btn2">
+              Login
+            </Link>
+          )}
         </div>
       </div>
     </nav>

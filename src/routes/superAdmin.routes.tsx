@@ -9,7 +9,7 @@ import { MdOutlinePriceChange } from "react-icons/md";
 export const superAdminPaths = [
   {
     name: "Dashboard",
-    path: "/",
+    path: "/dashboard",
     icon: <LuLayoutDashboard size={18} />,
     element: <HomeDashboard />,
   },

@@ -1,5 +1,11 @@
+import Banner from "./section/Banner";
+
 const HomePage = () => {
-  return <div className="min-h-screen">HomePage</div>;
+  return (
+    <div className="container mx-auto">
+      <Banner />
+    </div>
+  );
 };
 
 export default HomePage;
