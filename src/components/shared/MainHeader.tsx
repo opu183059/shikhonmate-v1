@@ -45,7 +45,7 @@ const MainHeader = () => {
         <div className="logo">
           <img src={logo} alt="Shikhonmate" className="w-44" />
         </div>
-        <div className="main-menu flex gap-4 md:gap-6 lg:gap-8 xl:gap-9 2xl:gap-10 bg-[#F5F5F5] px-4 py-2 rounded-full">
+        <div className="main-menu hidden md:flex gap-4 md:gap-6 lg:gap-8 xl:gap-9 2xl:gap-10 bg-[#F2F9FF] px-4 py-2 rounded-full">
           {mainMenu.map((item) => (
             <NavLink
               to={item.path}

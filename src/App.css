@@ -1,4 +1,7 @@
 /* Tailwind CSS will be written here  */
+* {
+  @apply font-urbanist;
+}
 
 .btn1 {
   @apply bg-[#21295C] rounded-md hover:!bg-[#4DA6C8] text-gray-50 hover:!text-gray-50;
@@ -18,4 +21,8 @@
 
 .main-menu a:not(.active):hover {
   @apply bg-white duration-300;
+}
+
+.container {
+  @apply px-6 md:px-0;
 }

@@ -38,7 +38,11 @@
 }
 
 .background-gradient {
-  background-image: linear-gradient(to top left, var(--color-type-five), white);
+  background-image: linear-gradient(
+    to top left,
+    var(--color-type-five),
+    white 65%
+  );
 }
 
 /* custom ant design css will be written here */
