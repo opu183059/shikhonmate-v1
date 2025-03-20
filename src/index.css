@@ -45,7 +45,24 @@
   );
 }
 
-/* custom ant design css will be written here */
+/* sticky card scrool animation */
+.feature-box {
+  position: relative;
+}
+.feature-card {
+  position: sticky;
+}
+.feature-card:nth-child(1) {
+  top: 60px;
+}
+.feature-card:nth-child(2) {
+  top: 120px;
+}
+.feature-card:nth-child(3) {
+  top: 180px;
+}
+
+/* ant design css will be written here */
 .ant-layout-content {
   padding: 0px 24px 24px;
 }
